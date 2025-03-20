@@ -1,16 +1,54 @@
-const num1 = 2;
-const num2 = 31;
-const num3 = 28;
-const num4 = 6;
+// Define the initial cats array
+let cats = ["Milo", "Otis", "Garfield"];
 
-// to equal 62
-const multiply = num1 * num2; // 62
+// Function to append a cat to the end of the array (destructive)
+function destructivelyAppendCat(name) {
+  cats.push(name);
+}
 
-// to createa random integer greater than 0
-const random = Math.floor(Math.random() * 100) + 1; // Generates a random number between 1 and 100
+// Function to prepend a cat to the beginning of the array (destructive)
+function destructivelyPrependCat(name) {
+  cats.unshift(name);
+}
 
-// to find the remainder
-const mod = num3 % num4; 
+// Function to remove the last cat from the array (destructive)
+function destructivelyRemoveLastCat() {
+  cats.pop();
+}
 
-// to get highest number
-const max = Math.max(1, 5, 10, 15, 20); 
+// Function to remove the first cat from the array (destructive)
+function destructivelyRemoveFirstCat() {
+  cats.shift();
+}
+
+// Function to append a cat to the end of the array (non-destructive)
+function appendCat(name) {
+  return [...cats, name];
+}
+
+// Function to prepend a cat to the beginning of the array (non-destructive)
+function prependCat(name) {
+  return [name, ...cats];
+}
+
+// Function to remove the last cat from the array (non-destructive)
+function removeLastCat() {
+  return cats.slice(0, -1);
+}
+
+// Function to remove the first cat from the array (non-destructive)
+function removeFirstCat() {
+  return cats.slice(1);
+}
+
+// Exporting functions for testing
+module.exports = {
+  destructivelyAppendCat,
+  destructivelyPrependCat,
+  destructivelyRemoveLastCat,
+  destructivelyRemoveFirstCat,
+  appendCat,
+  prependCat,
+  removeLastCat,
+  removeFirstCat,
+};
